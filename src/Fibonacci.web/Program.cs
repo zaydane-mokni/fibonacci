@@ -1,42 +1,33 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace Fibonacci.web
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+        CreateHostBuilder(args).Build().Run();
+    }
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
+    public static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
         {
-            return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.Configure(app =>
             {
-                webBuilder.Configure(app =>
+                app.UseRouting();
+                app.UseEndpoints(endpoints =>
                 {
-                    app.UseRouting();
-                    app.UseEndpoints(endpoints =>
-                    {
-                        endpoints.MapGet("/Fibonacci",
-                            async context =>
-                            {
-                                await context.Response.WriteAsync(
-                                    JsonSerializer.Serialize(Fibonacci.Compute.Execute(new[] {"44", "43"})));
-                            });
-                    });
+                    endpoints.MapGet("/Fibonacci",
+                        async context =>
+                        {
+                            await context.Response.WriteAsync(
+                                JsonSerializer.Serialize(Fibonacci.Compute.Execute(new[] {"44", "43"})));
+                        });
                 });
             });
-        }
+        });
     }
 }

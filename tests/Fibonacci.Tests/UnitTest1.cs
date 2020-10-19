@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Fibonacci.Tests
@@ -6,11 +5,10 @@ namespace Fibonacci.Tests
     public class UnitTest1
     {
         [Fact]
-        public void test1()
+        public void Test1()
         {
-            var result = Fibonacci.Compute.Execute(new[] {"44"});
+            var result = Compute.Execute(new[] {"44"});
             Assert.Equal(701408733, result[0]);
         }
     }
 }
-

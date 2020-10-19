@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49944",
-      "sslPort": 44358
+      "applicationUrl": "http://localhost:1480",
+      "sslPort": 44322
     }
   },
   "profiles": {
@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Fibonacci.web": {
+    "Fibonacci.Web": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
