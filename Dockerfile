@@ -2,7 +2,7 @@
 #mcr.microsoft.com/dotnet/core/sdk:3.1
 WORKDIR /src 
 COPY . . 
-RUN dotnet publish "./src/Fibonacci.Web/Fibonacci.Web.csproj" -c Release -r linux-x64 /p:PublishSingleFile=true -o /publish 
+RUN dotnet publish "./src/Fibonacci.Web/Fibonacci.Web.csproj" -c Release -r osx.10.11-x64 /p:PublishSingleFile=true -o /publish 
 
 FROM mcr.microsoft.com/dotnet/runtime-deps:5.0 AS final 
 #mcr.microsoft.com/dotnet/core/runtime-deps:3.1
