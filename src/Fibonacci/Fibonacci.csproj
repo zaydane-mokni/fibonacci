@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageId>Zaydane.Mokni.Fibonacci</PackageId>
+    <PackageId>Zaydane.Mokni.Fibonacci</PackageId>
   </PropertyGroup>
 
 </Project>
